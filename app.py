@@ -24,7 +24,7 @@ if uploaded_files:
             image.save(tmp.name)
             temp_path = tmp.name
 
-        result_img = results[0].plot()
+      
         st.image(result_img, caption="Detection Result", use_column_width=True)
 
         boxes = results[0].boxes
