@@ -27,11 +27,15 @@ if uploaded_files:
       
     
        
-            for box in boxes:
-                cls = int(box.cls[0])
-                conf = float(box.conf[0])
-                label = model.names[cls]
-                st.write(f"{label} - Confidence: {conf:.2f}")
+            results = model(temp_path, conf=confidence_threshold)
+result = results[0]
+boxes = result.boxes
+
+for box in boxes:
+    cls = int(box.cls[0])
+    conf = float(box.conf[0])
+    label = model.names[cls]
+    st.write(f"{label} - Confidence: {conf:.2f}")
 
         result_array = np.array(result_img)
         result_pil = Image.fromarray(result_array)
