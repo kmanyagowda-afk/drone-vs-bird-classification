@@ -8,9 +8,6 @@ st.title(" Drone vs  Bird Detection")
 
 conf_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.25)
 
-
-model = YOLO(best_model)
-
 uploaded_files = st.file_uploader(
     "Upload Image(s)",
     type=["jpg", "jpeg", "png"],
