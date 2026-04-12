@@ -24,7 +24,7 @@ if uploaded_files:
             image.save(tmp.name)
             temp_path = tmp.name
 
- results = model(temp_path, conf=confidence_threshold)
+results = model(temp_path, conf=confidence_threshold)
 result = results[0]
 boxes = result.boxes
 
