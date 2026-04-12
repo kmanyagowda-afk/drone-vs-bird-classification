@@ -38,11 +38,6 @@ result_img = result.plot()   # <-- ADD THIS LINE
 result_array = np.array(result_img)
 result_pil = Image.fromarray(result_array)
 st.image(result_pil)
-       
-
-        buf = BytesIO()
-        result_pil.save(buf, format="JPEG")
-        st.image(buf.getvalue())
 
         st.download_button(
             label="Download Result",
