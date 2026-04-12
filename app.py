@@ -26,7 +26,7 @@ if uploaded_files:
 
       
     
-        if boxes is not None:
+       
             for box in boxes:
                 cls = int(box.cls[0])
                 conf = float(box.conf[0])
