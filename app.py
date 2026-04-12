@@ -24,6 +24,13 @@ if uploaded_files:
             image.save(tmp.name)
             temp_path = tmp.name
 
+confidence_threshold = st.slider(
+    "Confidence Threshold",
+    0.0,
+    1.0,
+    0.25
+)
+
 results = model(temp_path, conf=confidence_threshold)
 result = results[0]
 boxes = result.boxes
