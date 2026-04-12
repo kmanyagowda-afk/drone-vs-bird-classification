@@ -24,8 +24,6 @@ if uploaded_files:
             image.save(tmp.name)
             temp_path = tmp.name
 
-        results = model.predict(source=temp_path, conf=conf_threshold)
-
         result_img = results[0].plot()
         st.image(result_img, caption="Detection Result", use_column_width=True)
 
