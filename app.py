@@ -18,7 +18,7 @@ if uploaded_files:
     for i, uploaded_file in enumerate(uploaded_files):
 
         image = Image.open(uploaded_file).convert("RGB")
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        
 
         with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
             image.save(tmp.name)
