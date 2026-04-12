@@ -44,5 +44,5 @@ st.image(result_pil)
             data=buf.getvalue(),
             file_name=f"detection_{i}.jpg",
             mime="image/jpeg",
-            key=f"download_{i}"
+            
         )
