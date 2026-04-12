@@ -1,8 +1,8 @@
+from io import BytesIO
 import streamlit as st
 from PIL import Image
 import tempfile
 import numpy as np
-from io import BytesIO
 
 st.title(" Drone vs  Bird Detection")
 
