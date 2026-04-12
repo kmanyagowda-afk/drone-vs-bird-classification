@@ -69,7 +69,7 @@ streamlit run app.py
 
 11. Streamlit Output
 
-![App Output](bird.jpg)
+![App Output](output1.jpg)
 
 
 
