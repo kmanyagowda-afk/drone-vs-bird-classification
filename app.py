@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
 import tempfile
-import glob
 import numpy as np
 from io import BytesIO
 
@@ -9,7 +8,7 @@ st.title(" Drone vs  Bird Detection")
 
 conf_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.25)
 
-best_model = glob.glob('runs/detect/*/weights/best.pt')[0]
+
 model = YOLO(best_model)
 
 uploaded_files = st.file_uploader(
