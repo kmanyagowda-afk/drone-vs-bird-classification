@@ -67,13 +67,9 @@ streamlit run app.py
 - Improve accuracy
 - Use YOLO for real-time detection
 
-11. Streamlit Output
-
-![App Output](output1.jpg)
 
 
-
-12. Conclusion
+11. Conclusion
 The model successfully classifies aerial objects into bird and drone categories with good accuracy.
 
 
