@@ -25,7 +25,7 @@ if uploaded_files:
             temp_path = tmp.name
 
       
-        st.image(result_img, caption="Detection Result", use_column_width=True)
+        
 
         boxes = results[0].boxes
         if boxes is not None:
