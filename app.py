@@ -39,12 +39,14 @@ result_array = np.array(result_img)
 result_pil = Image.fromarray(result_array)
 st.image(result_pil)
 
-       buf = BytesIO()
+     # create buffer properly
+buf = BytesIO()
 result_pil.save(buf, format="JPEG")
+buf.seek(0)
 
 st.download_button(
-    "Download Result",
-    buf.getvalue(),
-    "result.jpg",
-    "image/jpeg"
+    label="Download Result",
+    data=buf,
+    file_name="detection.jpg",
+    mime="image/jpeg"
 )
