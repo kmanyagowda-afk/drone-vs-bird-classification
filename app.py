@@ -42,6 +42,7 @@ st.image(result_pil)
 
         buf = BytesIO()
         result_pil.save(buf, format="JPEG")
+        st.image(buf.getvalue())
 
         st.download_button(
             label="Download Result",
