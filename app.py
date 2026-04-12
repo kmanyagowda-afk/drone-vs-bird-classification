@@ -25,9 +25,7 @@ if uploaded_files:
             temp_path = tmp.name
 
       
-        
-
-        boxes = results[0].boxes
+    
         if boxes is not None:
             for box in boxes:
                 cls = int(box.cls[0])
