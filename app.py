@@ -27,7 +27,7 @@ if uploaded_files:
       
     
        
-            results = model(temp_path, conf=confidence_threshold)
+          results = model(temp_path, conf=confidence_threshold)
 result = results[0]
 boxes = result.boxes
 
@@ -37,8 +37,11 @@ for box in boxes:
     label = model.names[cls]
     st.write(f"{label} - Confidence: {conf:.2f}")
 
-        result_array = np.array(result_img)
-        result_pil = Image.fromarray(result_array)
+result_img = result.plot()   # <-- ADD THIS LINE
+result_array = np.array(result_img)
+result_pil = Image.fromarray(result_array)
+st.image(result_pil)
+       
 
         buf = BytesIO()
         result_pil.save(buf, format="JPEG")
