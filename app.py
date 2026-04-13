@@ -29,6 +29,7 @@ confidence_threshold = st.slider(
     0.0,
     1.0,
     0.25
+    key="confidence_slider"
 )
 
 results = model(temp_path, conf=confidence_threshold)
