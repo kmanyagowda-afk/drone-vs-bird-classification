@@ -19,6 +19,8 @@ if uploaded_file is not None:
         image.save(tmp.name)
         temp_path = tmp.name
 
+results = model.predict(source=temp_path, conf=conf_threshold)
+
 
 
 
