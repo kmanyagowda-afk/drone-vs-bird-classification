@@ -1,32 +1,22 @@
 import streamlit as st
-from ultralytics import YOLO
+import tensorflow as tf
 from PIL import Image
 import numpy as np
-import os
 
-st.title("YOLO Object Detection")
+st.title("Aerial Object Detection")
 
-# Load model safely
-MODEL_PATH = "best.pt"
+# Load your .h5 model
+model = tf.keras.models.load_model("best_aerial.h5")
 
-if not os.path.exists(MODEL_PATH):
-    st.error("Model file not found. Make sure best.pt is uploaded.")
-    st.stop()
+uploaded_file = st.file_uploader("Upload image", type=["jpg","png","jpeg"])
 
-model = YOLO(MODEL_PATH)
+if uploaded_file:
+    image = Image.open(uploaded_file).resize((224,224))  # adjust if needed
+    st.image(image, caption="Uploaded Image")
 
-uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+    img = np.array(image) / 255.0
+    img = np.expand_dims(img, axis=0)
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    prediction = model.predict(img)
 
-    img_array = np.array(image)
-
-    # Run YOLO
-    results = model(img_array)
-
-    # Plot results
-    annotated_frame = results[0].plot()
-
-    st.image(annotated_frame, caption="Detected Image", use_column_width=True)
+    st.write("Prediction:", prediction)
