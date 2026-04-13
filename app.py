@@ -5,7 +5,12 @@ from PIL import Image
 import tempfile
 import numpy as np
 
-model = YOLO("best.pt")
+MODEL_PATH = "best.pt"
+
+if not os.path.exists(MODEL_PATH):
+    raise FileNotFoundError(f"Model not found: {MODEL_PATH}")
+
+model = YOLO(MODEL_PATH)
 st.title(" Drone vs  Bird Detection")
 
 conf_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.25)
