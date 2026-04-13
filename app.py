@@ -14,15 +14,12 @@ uploaded_files = st.file_uploader(
     accept_multiple_files=True
 )
 
-if uploaded_files:
-    for i, uploaded_file in enumerate(uploaded_files):
+if uploaded_file is not None:
+    image = Image.open(uploaded_file).convert("RGB")
 
-        image = Image.open(uploaded_file).convert("RGB")
-        
-
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
-            image.save(tmp.name)
-            temp_path = tmp.name
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
+        image.save(tmp.name)
+        temp_path = tmp.name
 
 confidence_threshold = st.slider(
     "Confidence Threshold",
@@ -32,7 +29,7 @@ confidence_threshold = st.slider(
     key="confidence_slider"
 )
 
-results = model(temp_path, conf=confidence_threshold)
+  results = model.predict(source=temp_path, conf=confidence_threshold)
 result = results[0]
 boxes = result.boxes
 
