@@ -1,9 +1,11 @@
 from io import BytesIO
+from ultralytics import yolo
 import streamlit as st
 from PIL import Image
 import tempfile
 import numpy as np
 
+model = YOLO("best.pt"_)
 st.title(" Drone vs  Bird Detection")
 
 conf_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.25)
@@ -20,9 +22,6 @@ if uploaded_file is not None:
         temp_path = tmp.name
 
 results = model.predict(source=temp_path, conf=conf_threshold)
-
-
-
 
 for box in boxes:
     cls = int(box.cls[0])
