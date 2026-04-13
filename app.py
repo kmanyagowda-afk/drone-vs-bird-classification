@@ -20,7 +20,6 @@ if uploaded_file is not None:
         temp_path = tmp.name
 
 
-result = results[0]
 boxes = result.boxes
 
 for box in boxes:
