@@ -19,15 +19,6 @@ if uploaded_file is not None:
         image.save(tmp.name)
         temp_path = tmp.name
 
-confidence_threshold = st.slider(
-    "Confidence Threshold",
-    0.0,
-    1.0,
-    0.25,
-    key="confidence_slider"
-)
-
-results = model.predict(source=temp_path, conf=confidence_threshold)
 
 result = results[0]
 boxes = result.boxes
