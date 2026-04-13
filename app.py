@@ -28,7 +28,7 @@ confidence_threshold = st.slider(
     "Confidence Threshold",
     0.0,
     1.0,
-    0.25
+    0.25,
     key="confidence_slider"
 )
 
