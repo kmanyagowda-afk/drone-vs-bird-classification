@@ -5,7 +5,7 @@ from PIL import Image
 import tempfile
 import numpy as np
 
-model = YOLO("./best.pt"_)
+model = YOLO("best.pt")
 st.title(" Drone vs  Bird Detection")
 
 conf_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.25)
