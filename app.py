@@ -29,7 +29,8 @@ confidence_threshold = st.slider(
     key="confidence_slider"
 )
 
-  results = model.predict(source=temp_path, conf=confidence_threshold)
+results = model.predict(source=temp_path, conf=confidence_threshold)
+
 result = results[0]
 boxes = result.boxes
 
