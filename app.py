@@ -20,7 +20,7 @@ if uploaded_file is not None:
         temp_path = tmp.name
 
 
-boxes = result.boxes
+
 
 for box in boxes:
     cls = int(box.cls[0])
