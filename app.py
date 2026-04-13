@@ -8,12 +8,10 @@ st.title(" Drone vs  Bird Detection")
 
 conf_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.25)
 
-uploaded_files = st.file_uploader(
-    "Upload Image(s)",
-    type=["jpg", "jpeg", "png"],
-    accept_multiple_files=True
+uploaded_file = st.file_uploader(
+    "Upload Image",
+    type=["jpg", "jpeg", "png"]
 )
-
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
 
