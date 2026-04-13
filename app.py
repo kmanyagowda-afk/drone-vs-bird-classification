@@ -1,5 +1,5 @@
 from io import BytesIO
-from ultralytics import yolo
+from ultralytics import YOLO
 import streamlit as st
 from PIL import Image
 import tempfile
